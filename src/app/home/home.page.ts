@@ -14,6 +14,7 @@ export class HomePage {
   to:any;
   subject:any;
   content:any;
+  
 
   details = []
 
@@ -41,6 +42,14 @@ export class HomePage {
     })
 
     console.log(this.details);
+
+  }
+
+  async delete(i){
+
+    this.details.splice(i,1);
+
+    console.log(this.details)
 
   }
 

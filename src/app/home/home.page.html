@@ -7,11 +7,14 @@
   </ion-toolbar>
 </ion-header>
 
-<!-------------------------- list of mail ------------------------------------------>
+
 
 <ion-content  [fullscreen]="true">
+
+  <!-------------------------- list of mail ------------------------------------------>
+
   
-  <ion-list *ngFor = "let mail of details"> 
+  <ion-list *ngFor = "let mail of details ; let i = index;" > 
   
     <ion-item lines="none" >
 
@@ -20,7 +23,7 @@
     
       <ion-label  position="stacked" text-wrap> {{mail.content}} </ion-label>
 
-      <ion-button slot="end">
+      <ion-button *ngIf="[mail] != null" (click)="delete(i)" slot="end">
 
       <ion-icon name="trash-outline"></ion-icon>
 
