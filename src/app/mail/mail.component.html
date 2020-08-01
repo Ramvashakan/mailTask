@@ -7,14 +7,14 @@
   
   <ion-list *ngFor = "let mail of details ; let i = index;" > 
   
-    <ion-item lines="none" >
+    <ion-item class="item_mail" lines="none" >
 
       <ion-label>{{mail.subject}}</ion-label>
   
     
       <ion-label  position="stacked" text-wrap> {{mail.content}} </ion-label>
 
-      <ion-button *ngIf="[mail] != null" (click)="delete(i)" slot="end">
+      <ion-button class="trash" *ngIf="[mail] != null" (click)="delete(i)" slot="end">
 
       <ion-icon name="trash-outline"></ion-icon>
 
@@ -41,7 +41,7 @@
 
       <!-------------------------- Card View ------------------------------------------>
 
-      <ion-card *ngIf="mail">
+      <ion-card   *ngIf="mail">
 
         <ion-item lines="none">
         <ion-buttons (click)="cancel()" slot="end">
