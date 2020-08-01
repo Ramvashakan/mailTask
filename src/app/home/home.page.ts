@@ -10,6 +10,12 @@ import { Component } from '@angular/core';
 export class HomePage {
 
   mail:boolean = false;
+  from:any;
+  to:any;
+  subject:any;
+  content:any;
+
+  details = []
 
   constructor() {}
 
@@ -23,6 +29,19 @@ export class HomePage {
   }
   cancel(){
     this.mail=false;
+  }
+
+  send(){
+
+    this.details.push({
+      from:this.from,
+      to:this.to,
+      subject:this.subject,
+      content:this.content
+    })
+
+    console.log(this.details);
+
   }
 
 }
