@@ -11,28 +11,61 @@
     <ion-item lines="none" >
 
       <ion-label>Main Content</ion-label>
-    </ion-item>
+  
+    
+      <ion-label  position="stacked" text-wrap>Sub Content</ion-label>
 
-    <ion-item >
-      <ion-label>Sub Content</ion-label>
+      <ion-button slot="end">
+
+      <ion-icon name="trash-outline"></ion-icon>
+
+
+    </ion-button>
 
     </ion-item>
     
   </ion-list>
 
 
- 
-
     
-      <ion-fab vertical="bottom" horizontal="end" >
+      <ion-fab vertical="bottom"  horizontal="end" >
         
-        <ion-fab-button (click)="add" >
+        <ion-fab-button (click)="fab_add()" >
           
           <ion-icon name="add"></ion-icon>
 
         </ion-fab-button>
 
       </ion-fab>
+
+      <ion-card *ngIf="mail">
+
+        <ion-item lines="none">
+        <ion-buttons (click)="cancel()" slot="end">
+        <ion-icon name="close-outline"></ion-icon>
+        </ion-buttons>
+
+      </ion-item>
+        <ion-input>
+          <ion-label position="fixed"> From: </ion-label>
+        </ion-input>
+
+        <ion-input >
+          <ion-label position="fixed"> To: </ion-label>
+        </ion-input>
+
+
+        <ion-input >
+          <ion-label position="fixed"> Subject: </ion-label>
+        </ion-input>
+
+        <ion-input>
+          <ion-label position="fixed"> Content: </ion-label>
+        </ion-input>
+
+
+
+      </ion-card>
 
 
 </ion-content>

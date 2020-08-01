@@ -9,6 +9,20 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
+  mail:boolean = false;
+
   constructor() {}
+
+
+
+  fab_add(){
+
+    this.mail=true;
+    
+
+  }
+  cancel(){
+    this.mail=false;
+  }
 
 }
