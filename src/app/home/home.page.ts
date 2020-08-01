@@ -9,48 +9,5 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  mail:boolean = false;
-  from:any;
-  to:any;
-  subject:any;
-  content:any;
-  
-
-  details = []
-
-  constructor() {}
-
-
-
-  fab_add(){
-
-    this.mail=true;
-    
-
-  }
-  cancel(){
-    this.mail=false;
-  }
-
-  send(){
-
-    this.details.push({
-      from:this.from,
-      to:this.to,
-      subject:this.subject,
-      content:this.content
-    })
-
-    console.log(this.details);
-
-  }
-
-  async delete(i){
-
-    this.details.splice(i,1);
-
-    console.log(this.details)
-
-  }
-
+constructor(){}
 }

@@ -2,88 +2,15 @@
                 <!-------------------------- Search bar ------------------------------------------>
 
 <ion-header [translucent]="true">
-  <ion-toolbar>
-   <ion-searchbar showCancelButton = "always" ></ion-searchbar>
-  </ion-toolbar>
-</ion-header>
-
-
-
-<ion-content  [fullscreen]="true">
-
-  <!-------------------------- list of mail ------------------------------------------>
-
+    <ion-toolbar>
+     <ion-searchbar showCancelButton = "always" ></ion-searchbar>
+    </ion-toolbar>
+  </ion-header>
   
-  <ion-list *ngFor = "let mail of details ; let i = index;" > 
   
-    <ion-item lines="none" >
 
-      <ion-label>{{mail.subject}}</ion-label>
+<ion-content [fullscreen]="true">
   
-    
-      <ion-label  position="stacked" text-wrap> {{mail.content}} </ion-label>
-
-      <ion-button *ngIf="[mail] != null" (click)="delete(i)" slot="end">
-
-      <ion-icon name="trash-outline"></ion-icon>
-
-    </ion-button>
-
-    </ion-item>
-    
-  </ion-list>
-
-
-  <!-------------------------- Fab icon ------------------------------------------>
-
-    
-      <ion-fab vertical="bottom"  horizontal="end" >
-        
-        <ion-fab-button (click)="fab_add()" >
-          
-          <ion-icon name="add"></ion-icon>
-
-        </ion-fab-button>
-
-      </ion-fab>
-
-
-      <!-------------------------- Card View ------------------------------------------>
-
-      <ion-card *ngIf="mail">
-
-        <ion-item lines="none">
-        <ion-buttons (click)="cancel()" slot="end">
-        <ion-icon name="close-outline"></ion-icon>
-        </ion-buttons>
-
-      </ion-item>
-
-        <ion-input [(ngModel)]="from" >
-          <ion-label position="fixed"> From: </ion-label>
-        </ion-input>
-
-        <ion-input [(ngModel)]="to" >
-          <ion-label position="fixed"> To: </ion-label>
-        </ion-input>
-
-
-        <ion-input [(ngModel)]="subject" >
-          <ion-label position="fixed"> Subject: </ion-label>
-        </ion-input>
-
-        <ion-input [(ngModel)]="content" >
-          <ion-label position="fixed"> Content: </ion-label>
-        </ion-input>
-
-        <ion-item>
-          <ion-button (click)="send()" slot="end">
-            <ion-icon name="paper-plane-outline"></ion-icon>
-          </ion-button>
-        </ion-item>
-
-     
-      </ion-card>
-
+    <app-mail></app-mail>
 
 </ion-content>
