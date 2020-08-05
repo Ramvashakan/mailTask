@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-mail',
@@ -7,48 +7,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MailComponent implements OnInit {
 
-  mail:boolean = false;
-  from:any;
-  to:any;
-  subject:any;
-  content:any;
-  
+  @Input() mail:any;
+  @Input() i:any;
 
   details = []
 
   constructor() { }
 
-  ngOnInit() {}
-
-
-  fab_add(){
-
-    this.mail=true;
+  ngOnInit() {
     
-
-  }
-  cancel(){
-    this.mail=false;
   }
 
-  send(){
-
-    this.details.push({
-      from:this.from,
-      to:this.to,
-      subject:this.subject,
-      content:this.content
-    })
-
-    console.log(this.details);
-
-  }
 
   delete(i){
 
-    this.details.splice(i,1);
+    this.mail.splice(i,1);
 
-    console.log(this.details)
+
+    console.log(this.mail)
 
   }
 

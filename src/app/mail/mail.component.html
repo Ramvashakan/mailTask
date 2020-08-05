@@ -1,20 +1,14 @@
 
 
-
-<ion-content>
-
   <!-------------------------- list of mail ------------------------------------------>
-  
-  <ion-list *ngFor = "let mail of details ; let i = index;" > 
   
     <ion-item class="item_mail" lines="none" >
 
-      <ion-label>{{mail.subject}}</ion-label>
+      <ion-label>{{mail.from}}</ion-label>
   
-    
-      <ion-label  position="stacked" text-wrap> {{mail.content}} </ion-label>
+      <ion-label  position="stacked" text-wrap> {{mail.subject}} </ion-label>
 
-      <ion-button class="trash" *ngIf="[mail] != null" (click)="delete(i)" slot="end">
+      <ion-button class="trash" *ngIf="[mail] != null" (click)="delete()" slot="end">
 
       <ion-icon name="trash-outline"></ion-icon>
 
@@ -22,58 +16,7 @@
 
     </ion-item>
     
-  </ion-list>
+ 
 
 
-  <!-------------------------- Fab icon ------------------------------------------>
 
-    
-      <ion-fab vertical="bottom"   horizontal="end" >
-        
-        <ion-fab-button (click)="fab_add()" >
-          
-          <ion-icon name="add"></ion-icon>
-
-        </ion-fab-button>
-
-      </ion-fab>
-
-
-      <!-------------------------- Card View ------------------------------------------>
-
-      <ion-card   *ngIf="mail">
-
-        <ion-item lines="none">
-        <ion-buttons (click)="cancel()" slot="end">
-        <ion-icon name="close-outline"></ion-icon>
-        </ion-buttons>
-
-      </ion-item>
-
-        <ion-input [(ngModel)]="from" >
-          <ion-label position="fixed"> From: </ion-label>
-        </ion-input>
-
-        <ion-input [(ngModel)]="to" >
-          <ion-label position="fixed"> To: </ion-label>
-        </ion-input>
-
-
-        <ion-input [(ngModel)]="subject" >
-          <ion-label position="fixed"> Subject: </ion-label>
-        </ion-input>
-
-        <ion-input [(ngModel)]="content" >
-          <ion-label position="fixed"> Content: </ion-label>
-        </ion-input>
-
-        <ion-item>
-          <ion-button (click)="send()" slot="end">
-            <ion-icon name="paper-plane-outline"></ion-icon>
-          </ion-button>
-        </ion-item>
-     
-      </ion-card>
-
-
-</ion-content>

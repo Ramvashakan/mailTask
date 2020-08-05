@@ -11,6 +11,65 @@
 
 <ion-content [fullscreen]="true">
   
-    <app-mail></app-mail>
+    <ion-list *ngFor = "let mail of details ; let i = index;" > 
+
+
+    <app-mail [mail] = "mail" [i] = "i" ></app-mail>
+  
+    </ion-list>
+  
+
+
+  <!-------------------------- Fab icon ------------------------------------------>
+
+    
+  <ion-fab vertical="bottom"   horizontal="end" >
+        
+    <ion-fab-button (click)="fab_add()" >
+      
+      <ion-icon name="add"></ion-icon>
+
+    </ion-fab-button>
+
+  </ion-fab>
+
+
+  <!-------------------------- Card View ------------------------------------------>
+
+  <ion-card   *ngIf="mail">
+
+    <ion-item lines="none">
+    <ion-buttons (click)="cancel()" slot="end">
+    <ion-icon name="close-outline"></ion-icon>
+    </ion-buttons>
+
+  </ion-item>
+
+    <ion-input [(ngModel)]="from" >
+      <ion-label position="fixed"> From: </ion-label>
+    </ion-input>
+
+    <ion-input [(ngModel)]="to" >
+      <ion-label position="fixed"> To: </ion-label>
+    </ion-input>
+
+
+    <ion-input [(ngModel)]="subject" >
+      <ion-label position="fixed"> Subject: </ion-label>
+    </ion-input>
+
+    <ion-input [(ngModel)]="content" >
+      <ion-label position="fixed"> Content: </ion-label>
+    </ion-input>
+
+    <ion-item>
+      <ion-button (click)="send()" slot="end">
+        <ion-icon name="paper-plane-outline"></ion-icon>
+      </ion-button>
+    </ion-item>
+ 
+  </ion-card>
+
+
 
 </ion-content>
