@@ -40,11 +40,29 @@ send(){
     to:this.to,
     subject:this.subject,
     content:this.content
-  })
+  });
+
+
+  this.from = "";
+  this.to = "";
+  this.subject="";
+  this.content="";
 
   console.log(this.details);
 
 }
+
+delete(mail){
+
+  
+  var index = this.details.indexOf(mail);
+  
+  this.details.splice(index,1);
+
+
+}
+
+
 
 
 

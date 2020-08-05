@@ -14,7 +14,7 @@
     <ion-list *ngFor = "let mail of details ; let i = index;" > 
 
 
-    <app-mail [mail] = "mail" [i] = "i" ></app-mail>
+    <app-mail [mail] = "mail" (data)="delete($event)" ></app-mail>
   
     </ion-list>
   

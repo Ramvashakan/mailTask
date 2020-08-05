@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output,EventEmitter } from '@angular/core';
+
 
 @Component({
   selector: 'app-mail',
@@ -8,7 +9,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class MailComponent implements OnInit {
 
   @Input() mail:any;
-  @Input() i:any;
+  @Output() data = new EventEmitter();
 
   details = []
 
@@ -19,12 +20,10 @@ export class MailComponent implements OnInit {
   }
 
 
-  delete(i){
+  delete(){
 
-    this.mail.splice(i,1);
-
-
-    console.log(this.mail)
+    this.data.emit(this.mail);
+  
 
   }
 
