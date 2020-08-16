@@ -7,15 +7,16 @@ import { HomePage } from './home.page';
 import { HomePageRoutingModule } from './home-routing.module';
 
 import {MailComponent} from '../mail/mail.component';
+import { ComponentsModule } from '../mail/components.module';
 
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    IonicModule,
+    IonicModule,ComponentsModule,
     HomePageRoutingModule
   ],
-  declarations: [HomePage,MailComponent]
+  declarations: [HomePage]
 })
 export class HomePageModule {}

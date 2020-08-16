@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-
+import { Storage } from '@ionic/storage'
 
 @Component({
   selector: 'app-home',
@@ -9,26 +9,37 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
+
   mail:boolean = false;
   from:any;
   to:any;
   subject:any;
   content:any;
-  
 
-  details = []
+  list:any = [];
 
 
-constructor(){}
+  details= [];
 
+ 
+
+constructor( private storage:Storage ){ 
+
+  this.storage.get('list').then((val) => {
+   
+    this.details = JSON.parse(val)
+  });
+
+}
 
 
 fab_add(){
 
-  this.mail=true;
-  
+
+  this.mail=true;  
 
 }
+
 cancel(){
   this.mail=false;
 }
@@ -43,28 +54,28 @@ send(){
   });
 
 
+  this.list = JSON.stringify(this.details)
+
+  this.storage.set( 'list' , this.list)
+
   this.from = "";
   this.to = "";
   this.subject="";
   this.content="";
 
-  console.log(this.details);
+  this.storage.get('list').then((val) => {
+    
+    this.details = JSON.parse(val);
+
+  });
 
 }
 
 delete(mail){
-
   
   var index = this.details.indexOf(mail);
   
   this.details.splice(index,1);
 
-
 }
-
-
-
-
-
-
 }

@@ -10,16 +10,19 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
 
+import {SQLite} from '@ionic-native/sqlite/ngx'
+import { IonicStorageModule } from '@ionic/storage'
+
+
 @NgModule({
   declarations: [
     AppComponent
   ],
   
-  
-    entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+  entryComponents: [],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,IonicStorageModule.forRoot()],
   providers: [
-    StatusBar,
+    StatusBar,SQLite,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],

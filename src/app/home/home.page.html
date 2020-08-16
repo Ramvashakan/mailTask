@@ -1,5 +1,5 @@
 
-                <!-------------------------- Search bar ------------------------------------------>
+<!-------------------------- Search bar ------------------------------------------>
 
 <ion-header [translucent]="true">
     <ion-toolbar>
@@ -8,22 +8,21 @@
   </ion-header>
   
   
+  <app-item-output (newItemEvent)="addItem($event)"></app-item-output>
 
 <ion-content [fullscreen]="true">
   
     <ion-list *ngFor = "let mail of details ; let i = index;" > 
-
-
+      
     <app-mail [mail] = "mail" (data)="delete($event)" ></app-mail>
   
     </ion-list>
   
 
-
-  <!-------------------------- Fab icon ------------------------------------------>
+<!-------------------------- Fab icon ------------------------------------------>
 
     
-  <ion-fab vertical="bottom"   horizontal="end" >
+  <ion-fab vertical="bottom" horizontal="end" >
         
     <ion-fab-button (click)="fab_add()" >
       
@@ -36,7 +35,7 @@
 
   <!-------------------------- Card View ------------------------------------------>
 
-  <ion-card   *ngIf="mail">
+  <ion-card *ngIf="mail">
 
     <ion-item lines="none">
     <ion-buttons (click)="cancel()" slot="end">
@@ -45,20 +44,20 @@
 
   </ion-item>
 
-    <ion-input [(ngModel)]="from" >
+    <ion-input class="card_in" [(ngModel)]="from" >
       <ion-label position="fixed"> From: </ion-label>
     </ion-input>
 
-    <ion-input [(ngModel)]="to" >
+    <ion-input class="card_in" [(ngModel)]="to" >
       <ion-label position="fixed"> To: </ion-label>
     </ion-input>
 
 
-    <ion-input [(ngModel)]="subject" >
+    <ion-input class="card_in" [(ngModel)]="subject" >
       <ion-label position="fixed"> Subject: </ion-label>
     </ion-input>
 
-    <ion-input [(ngModel)]="content" >
+    <ion-input class="card_in" [(ngModel)]="content" >
       <ion-label position="fixed"> Content: </ion-label>
     </ion-input>
 
