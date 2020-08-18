@@ -63,9 +63,12 @@ delete(mail){
   
   var index = this.details.indexOf(mail);
   
-  this.details.splice(index,1);
+ // this.details.splice(index,1);
 
-  this.mailService.delete(index);
+  this.mailService.delete(mail);
+
+
+    
 
   
 

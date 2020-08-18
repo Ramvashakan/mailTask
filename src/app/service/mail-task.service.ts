@@ -12,6 +12,7 @@ export class MailTaskService {
   try = [];
 
   constructor(private storage:Storage,private platform:Platform) { 
+
   }
 
 
@@ -20,10 +21,10 @@ export class MailTaskService {
 
     this.storage.set('mail',JSON.stringify(this.try));
     
-
+   
   }
 
-  getStore():Promise<Array<number>> {
+  getStore():Promise<Array<string>> {
 
 
     return new Promise((resolve,reject)=>{
@@ -48,11 +49,14 @@ export class MailTaskService {
   }
   
 
-  delete(index){
+  delete(mail){
 
-    this.try.splice(index,1);
+    var a = this.try.indexOf(mail);
+    this.try.splice(a,1);
+
     this.setStore();
 
+   
   }
 
 }
