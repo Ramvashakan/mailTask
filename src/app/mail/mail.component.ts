@@ -11,8 +11,6 @@ export class MailComponent implements OnInit {
   @Input() mail:any;
   @Output() data = new EventEmitter();
 
-  details = []
-
   constructor() { }
 
   ngOnInit() {

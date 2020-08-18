@@ -11,7 +11,8 @@ import { AppRoutingModule } from './app-routing.module';
 
 
 import {SQLite} from '@ionic-native/sqlite/ngx'
-import { IonicStorageModule } from '@ionic/storage'
+import { IonicStorageModule, Storage } from '@ionic/storage'
+import { MailTaskService } from './service/mail-task.service';
 
 
 @NgModule({
@@ -23,7 +24,7 @@ import { IonicStorageModule } from '@ionic/storage'
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,IonicStorageModule.forRoot()],
   providers: [
     StatusBar,SQLite,
-    SplashScreen,
+    SplashScreen,MailTaskService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 
 import { Storage } from '@ionic/storage'
+import { MailTaskService } from '../service/mail-task.service';
+import { Platform } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -16,20 +18,19 @@ export class HomePage {
   subject:any;
   content:any;
 
-  list:any = [];
-
-
-  details= [];
+  details = [];
 
  
 
-constructor( private storage:Storage ){ 
+constructor( private storage:Storage,private mailService:MailTaskService,private plateform:Platform ){ 
 
-  this.storage.get('list').then((val) => {
-   
-    this.details = JSON.parse(val)
-  });
 
+  this.mailService.getStore().then((val)=>{
+
+    this.details = val
+  }).catch((err)=>{
+    console.log(err);
+  })
 }
 
 
@@ -46,29 +47,16 @@ cancel(){
 
 send(){
 
+
   this.details.push({
-    from:this.from,
-    to:this.to,
-    subject:this.subject,
-    content:this.content
-  });
+    from: this.from,
+    subject:this.subject
+  })
 
-
-  this.list = JSON.stringify(this.details)
-
-  this.storage.set( 'list' , this.list)
-
-  this.from = "";
-  this.to = "";
-  this.subject="";
-  this.content="";
-
-  this.storage.get('list').then((val) => {
-    
-    this.details = JSON.parse(val);
-
-  });
-
+  this.mailService.getData(this.details)
+  this.mailService.getStore();
+ 
+  
 }
 
 delete(mail){
@@ -76,6 +64,10 @@ delete(mail){
   var index = this.details.indexOf(mail);
   
   this.details.splice(index,1);
+
+  this.mailService.delete(index);
+
+  
 
 }
 }
